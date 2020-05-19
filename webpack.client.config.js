@@ -1,6 +1,7 @@
 module.exports = {
+  target: 'web',
   entry : {
-     client: './src/index.ts'
+     client: './src/client/index.tsx'
   },
   output : {
     path : `${__dirname}/public`,
