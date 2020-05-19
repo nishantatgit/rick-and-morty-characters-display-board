@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "noEmitOnError": true,
+    "lib": ["ES2017","DOM"],
+    "target": "ES5",
+    "esModuleInterop":true
+  }
+}

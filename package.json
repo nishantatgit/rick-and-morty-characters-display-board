@@ -1,0 +1,30 @@
+{
+  "name": "rick-n-morty-characters",
+  "version": "0.0.1",
+  "description": "Sapient XT full cycle deveploer evaluation project",
+  "main": "index.js",
+  "author": "nishant kumar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@types/node": "^14.0.1",
+    "@types/react": "^16.9.35",
+    "babel-loader": "^8.1.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^7.0.4",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts" : {
+    "build": "webpack --config webpack.client.config.js --mode development"
+  }
+}
