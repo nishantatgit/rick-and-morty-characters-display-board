@@ -2,13 +2,12 @@ import express from 'express';
 import React from 'react';
 import Html from './html';
 import { renderToString } from 'react-dom/server';
-import { ServerStyleSheet, ThemeProvider } from 'styled-components';
-import HomePage from '../client/pages/Homepage/Homepage';
-import theme from '../client/ui/themes';
+import { ServerStyleSheet } from 'styled-components';
+import Pagecontainer from '../client/Container/PageContainer/PageContainer';
 const app = express();
 
 const sheet = new ServerStyleSheet();
-const content = renderToString(sheet.collectStyles(<ThemeProvider theme={theme.DARK}><HomePage/></ThemeProvider>));
+const content = renderToString(sheet.collectStyles(<Pagecontainer/>));
 const styleTags = sheet.getStyleTags();
 sheet.seal();
 const html = Html(content);

@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import HomePage from './pages/Homepage/Homepage';
-import { ThemeProvider } from 'styled-components';
-import theme from './ui/themes';
+import PageContainer from './Container/PageContainer/PageContainer';
 
-ReactDom.render(<ThemeProvider theme={theme.VINE}>
-                  <HomePage/>
-                </ThemeProvider>, document.getElementById('rick-and-morty-app'));
+ReactDom.render(<PageContainer/>, document.getElementById('rick-and-morty-app'));
