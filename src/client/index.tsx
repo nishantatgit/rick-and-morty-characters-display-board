@@ -1,4 +1,10 @@
 import React from 'react';
-const arr : number[] = [1,2];
+import ReactDom from 'react-dom';
 
-import Homepage from './pages/Homepage/Homepage';
+import HomePage from './pages/Homepage/Homepage';
+import { ThemeProvider } from 'styled-components';
+import theme from './ui/themes';
+
+ReactDom.render(<ThemeProvider theme={theme.VINE}>
+                  <HomePage/>
+                </ThemeProvider>, document.getElementById('rick-and-morty-app'));
