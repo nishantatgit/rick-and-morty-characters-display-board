@@ -1,0 +1,28 @@
+import DEFAULTS from '../common';
+interface COLORS {
+  PRIMARY: string;
+  SECONDARY: string;
+  TERTIARY: string;
+  QUATERNARY: string;
+  QUINARY: string;
+}
+const COLORS : COLORS = {
+  PRIMARY: '#021859',
+  SECONDARY: '#0B9ED9',
+  TERTIARY: '#F25CA2',
+  QUATERNARY: '#F2F2F2',
+  QUINARY: '#FFFFFF'
+}
+
+export default {
+  ...DEFAULTS.COLORS,
+  ...COLORS,
+  BACKGROUND : {
+    PRIMARY: COLORS.PRIMARY,
+    SECONDARY: COLORS.SECONDARY
+  },
+  TEXT: {
+    PRIMARY: COLORS.QUINARY,
+    SECONDARY: COLORS.QUATERNARY
+  }
+}

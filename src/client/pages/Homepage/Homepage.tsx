@@ -1,7 +1,11 @@
 import React from 'react';
 
-const HomePage = () => {
-  return <h1>Homepage </h1>
+import styles from './Homepage.style';
+import withStyles from '../../utils/withStyles';
+
+const HomePage = (props) => {
+  const cssClasses = `${props.className} abc`; 
+  return <h1 className={cssClasses}>Homepage </h1>
 }  
 
-export default HomePage;
+export default withStyles(styles, HomePage);

@@ -5,7 +5,7 @@ export default (content) => `<!doctype html>
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
   </head>
   <body>
-    <div id="react-app">${content}</div>
+    <div id="rick-and-morty-app">${content}</div>
     <script src="dependencies.js"></script>
     <script src="client.js"></script>
   </body>
