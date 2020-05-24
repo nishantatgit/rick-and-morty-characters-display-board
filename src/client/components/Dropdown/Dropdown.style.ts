@@ -18,7 +18,6 @@ export default css`
       background-color: white;
       border: 1px solid grey;
       cursor: pointer;
-      border-radius: 5px;
       height: 100%;
     }
 

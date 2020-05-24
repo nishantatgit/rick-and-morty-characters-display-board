@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import withStyles from '../../utils/withStyles';
 import styles from './Dropdown.style';
 
-type optionType = {
+interface optionType {
   key: string;
   value: React.ReactNode;
-};
+}
+
+//TDDO: handle keyboard and click outside events
 
 const Dropdown = (props: {
   className: string;

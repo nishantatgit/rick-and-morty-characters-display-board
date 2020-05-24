@@ -8,7 +8,6 @@ export default `
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     vertical-align: baseline;
   }
   body {
@@ -45,7 +44,7 @@ export default `
   .h6,h6{
     font-size: ${theme.COMMON.FONTS.FONT_SIZE.HEADING.H6}px;
   }
-  body,p{
+  body,p,button{
     font-size: ${theme.COMMON.FONTS.FONT_SIZE.BODY.PRIMARY}px;
   }
 `;
