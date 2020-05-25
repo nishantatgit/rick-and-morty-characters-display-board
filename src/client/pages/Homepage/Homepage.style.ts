@@ -12,13 +12,20 @@ export default css`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 10px 20px;
+    width: 80%;
+    margin-left: 20%;
+    padding: 10px;
     justify-content: space-evenly;
     .list-item {
-      width: calc(22.5% - 10px);
+      width: calc(22.5% - 5px);
       background-color: ${(props) => props.theme.COLORS.BACKGROUND.SECONDARY};
       margin-top: 20px;
       margin-bottom: 20px;
     }
+  }
+  form {
+    position: fixed;
+    top: 20px;
+    width: 20%;
   }
 `;

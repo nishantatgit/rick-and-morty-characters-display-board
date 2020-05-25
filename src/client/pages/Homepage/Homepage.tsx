@@ -8,6 +8,7 @@ import constants from '../../../constants';
 
 import ListRenderer from '../../components/ListRenderer/ListRenderer';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
+import FilterList from '../../components/FilterList/Filterlist';
 
 const HomePage = (props: {
   className: string;
@@ -32,6 +33,7 @@ const HomePage = (props: {
 
   return (
     <div className={className}>
+      <FilterList filters={constants.filters}></FilterList>
       <ListRenderer
         Component={CharacterCard}
         list={data}
