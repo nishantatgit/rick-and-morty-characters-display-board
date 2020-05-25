@@ -16,9 +16,9 @@ const FONT_SIZE = {
     H6: 12,
   },
   BODY: {
-    PRIMARY: 20,
-    SECONDARY: 16,
-    TERTIARY: 12,
+    PRIMARY: 16,
+    SECONDARY: 12,
+    TERTIARY: 10,
   },
 };
 
