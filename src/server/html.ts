@@ -1,5 +1,5 @@
 import styles from '../globalStyles';
-export default (content: string) => `<!doctype html>
+export default (content: string, initialState: any) => `<!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -8,6 +8,9 @@ export default (content: string) => `<!doctype html>
     <style>${styles}</style>
   </head>
   <body>
+    <script>
+       window.__initialState__ = ${JSON.stringify(initialState)}
+    </script>
     <div id="rick-and-morty-app">${content}</div>
     <script src="dependencies.js"></script>
     <script src="client.js"></script>
