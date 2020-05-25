@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import Homepage from '../../pages/Homepage/Homepage';
 import Dropdown from '../../components/Dropdown/Dropdown';
 import theme from '../../ui/themes';
+import styles from './PageContainer.style';
+import withStyles from '../../utils/withStyles';
 
-const Pagecontainer = () => {
+const Pagecontainer = (props: { className: string; initialState: object }) => {
   const themesArray: string[] = Object.keys(theme);
 
   const [state, setState] = useState({
@@ -33,14 +35,17 @@ const Pagecontainer = () => {
     });
   };
 
+  const { initialState, className } = props;
+
+  console.log('initial state at page container', initialState);
   return (
-    <div>
+    <div className={className}>
       <Dropdown options={dropdownOptions} onChange={dropdownOnChangeHandler} />
       <ThemeProvider theme={theme[state.theme]}>
-        <Homepage />
+        <Homepage initialState={initialState} />
       </ThemeProvider>
     </div>
   );
 };
 
-export default Pagecontainer;
+export default withStyles(styles, Pagecontainer);

@@ -6,20 +6,37 @@ import styles from './CharacterCard.style';
 
 type props = {
   className: string;
+  name: string;
   status: string;
   gender: string;
-  origin: string;
-  location: string;
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
   image: string;
+  cssClass: string;
 };
 
-const CharacterCard = ({ props: props }) => {
+const CharacterCard = (props: props) => {
   const {
-    data: { className, status, gender, origin, location, image },
+    className,
+    status,
+    gender,
+    origin: { name: origin },
+    location: { name: location },
+    name,
+    image,
+    cssClass,
   } = props;
   return (
-    <section className={`${className} character-card`}>
-      <Image src={image}></Image>
+    <article className={`${className} ${cssClass}`}>
+      <div className='image-container'>
+        <Image src={image} />
+      </div>
       <div className='character-card__details'>
         <span className='character-card__details__name'>{name}</span>
         <span className='character-card__details__status'>{status}</span>
@@ -27,7 +44,7 @@ const CharacterCard = ({ props: props }) => {
         <span className='character-card__details__origin'>{origin}</span>
         <span className='character-card__details__location'>{location}</span>
       </div>
-    </section>
+    </article>
   );
 };
 
