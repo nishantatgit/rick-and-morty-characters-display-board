@@ -6,6 +6,8 @@ import styles from './CharacterCard.style';
 
 import Ufo from '../../../../public/svg/alien.svg';
 import Human from '../../../../public/svg/human.svg';
+import Humanoid from '../../../public/svg/humanoid.svg';
+import Robot from '../../../../public/svg/robot.svg';
 import Mytholog from '../../../../public/svg/mytholog.svg';
 import Unknown from '../../../../public/svg/unknown.svg';
 
@@ -55,6 +57,10 @@ const CharacterCard = (props: props) => {
         return <Ufo {...svgProps} />;
       case 'Mytholog':
         return <Mytholog {...svgProps} />;
+      case 'Humanoid':
+        return <Robot {...svgProps} />;
+      case 'Robot':
+        return <Robot {...svgProps} />;
       default:
         return <Unknown {...svgProps} />;
     }
