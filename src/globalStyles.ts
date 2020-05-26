@@ -13,7 +13,8 @@ export default `
   body {
     font-family: ${theme.COMMON.FONTS.FONT_FAMILY.BODY};
     overflow-x: hidden;
-    width: 100%;
+    max-width: 2400px;
+    margin: auto;
   }
   ol,
   ul {
