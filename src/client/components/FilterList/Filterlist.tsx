@@ -10,14 +10,12 @@ const FilterList = (props: { filters: any; className?: string }) => {
     <form id='filters' className={className}>
       {filters &&
         filters.map(
-          (
-            filter: JSX.IntrinsicAttributes & {
-              values: any[];
-              onChange?: any;
-              filterLabel: string;
-              filterName: string;
-            }
-          ) => <Filter {...filter}></Filter>
+          (filter: {
+            values: { label: string; value: string }[];
+            filterLabel: string;
+            filterName: string;
+            onChange?: any;
+          }) => <Filter type='radio' {...filter}></Filter>
         )}
     </form>
   );

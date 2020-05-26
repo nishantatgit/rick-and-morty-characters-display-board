@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import withStyles from '../../utils/withStyles';
 import styles from './Dropdown.style';
 
@@ -20,6 +20,26 @@ const Dropdown = (props: {
   const [state, setState] = useState({
     selected: props.options[0],
     listOpen: false,
+  });
+
+  useEffect(() => {
+    const docClickHandler = (e: any) => {
+      const { target } = e;
+      if (
+        options.every((option) => option.key !== target.id) &&
+        state.listOpen === true
+      ) {
+        setState({
+          ...state,
+          listOpen: false,
+        });
+      }
+    };
+    document.addEventListener('click', docClickHandler);
+
+    return function cleanUp() {
+      document.removeEventListener('click', docClickHandler);
+    };
   });
 
   const getOptions = (options: optionType[]) =>

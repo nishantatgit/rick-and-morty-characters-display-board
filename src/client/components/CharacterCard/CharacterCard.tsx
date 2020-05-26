@@ -4,7 +4,10 @@ import Image from '../Image/Image';
 import withStyles from '../../utils/withStyles';
 import styles from './CharacterCard.style';
 
-import Alien from '../../../../public/svg/alien.svg';
+import Ufo from '../../../../public/svg/alien.svg';
+import Human from '../../../../public/svg/human.svg';
+import Mytholog from '../../../../public/svg/mytholog.svg';
+import Unknown from '../../../../public/svg/unknown.svg';
 
 type props = {
   className: string;
@@ -15,6 +18,7 @@ type props = {
     name: string;
     url: string;
   };
+  species: string;
   location: {
     name: string;
     url: string;
@@ -32,25 +36,51 @@ const CharacterCard = (props: props) => {
     location: { name: location },
     name,
     image,
+    species,
     cssClass,
   } = props;
 
-  const svgProps = {
-    height: '50',
-    width: '50',
+  const svgClass =
+    status === 'Alive' ? 'alive' : status === 'unknown' ? 'unknown' : 'dead';
+
+  const getStatusSvg = (species: string) => {
+    const svgProps = {
+      height: 50,
+      width: 50,
+    };
+    switch (species) {
+      case 'Human':
+        return <Human {...svgProps} />;
+      case 'Alien':
+        return <Ufo {...svgProps} />;
+      case 'Mytholog':
+        return <Mytholog {...svgProps} />;
+      default:
+        return <Unknown {...svgProps} />;
+    }
   };
+
   return (
     <article className={`${className} ${cssClass}`}>
       <div className='image-container'>
-        <Image src={image} />
+        <Image src={image} textOnImage={name} alt={`Character ${name}`} />
       </div>
       <div className='character-card__details'>
-        <span className='character-card__details__name'>{name}</span>
-        <span className='character-card__details__status'>{status}</span>
+        <div className='character-card__details__status'>
+          <div className='svg-container'>
+            <svg className={svgClass} viewBox='0 0 100 100'>
+              <circle cx='50' cy='50' r='40' />
+            </svg>
+          </div>
+          <span className='text'>{status}</span>
+        </div>
         <span className='character-card__details__gender'>{gender}</span>
         <span className='character-card__details__origin'>{origin}</span>
         <span className='character-card__details__location'>{location}</span>
-        <Alien />
+        <div className='character-card__details__species'>
+          {getStatusSvg(species)}
+          <span>{species}</span>
+        </div>
       </div>
     </article>
   );

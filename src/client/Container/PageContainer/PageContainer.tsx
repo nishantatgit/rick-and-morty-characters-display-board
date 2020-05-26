@@ -8,7 +8,9 @@ import styles from './PageContainer.style';
 import withStyles from '../../utils/withStyles';
 
 const Pagecontainer = (props: { className: string; initialState: object }) => {
-  const themesArray: string[] = Object.keys(theme);
+  const themesArray: string[] = Object.keys(theme).filter(
+    (key) => key !== 'COMMON'
+  );
 
   const [state, setState] = useState({
     theme: themesArray[0],

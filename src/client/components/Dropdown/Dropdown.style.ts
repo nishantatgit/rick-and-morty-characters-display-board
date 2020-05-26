@@ -3,13 +3,14 @@ import { css } from 'styled-components';
 export default css`
   &.listbox-area {
     position: relative;
-    height: 100px;
+    height: 53px;
     border: 2px solid grey;
+
     .listbox-dropdown-container {
       width: 100%;
       position: relative;
       height: 48px;
-      top: 52px;
+      top: 5px;
     }
 
     .dropdown-button {

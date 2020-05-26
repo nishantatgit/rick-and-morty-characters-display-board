@@ -23,9 +23,21 @@ export default css`
       margin-bottom: 20px;
     }
   }
+  .filter-chip {
+    display: inline-block;
+    color: ${(props) => props.theme.COLORS.TERTIARY};
+    border: 1px solid ${(props) => props.theme.COLORS.TERTIARY};
+    margin-right: 20px;
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
   form {
     position: fixed;
     top: 20px;
     width: 20%;
   }
+  min-height: 99vh;
 `;

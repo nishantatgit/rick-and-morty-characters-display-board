@@ -5,6 +5,7 @@ export default css`
     width: 150px;
     border: none;
     position: fixed;
-    right: 10px;
+    right: 30px;
+    z-index: 10;
   }
 `;
