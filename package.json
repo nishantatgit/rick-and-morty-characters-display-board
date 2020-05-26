@@ -13,6 +13,9 @@
     "react-svg-loader": "^3.0.3",
     "styled-components": "^5.1.0"
   },
+  "engines": {
+    "node": ">=10.20.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
