@@ -7,6 +7,10 @@ export default css`
   flex-direction: column;
   .character-card__details {
     padding: 5px;
+    svg {
+      height: 50px;
+      width: 50px;
+    }
   }
   .character-card__details__name,
   .character-card__details__status,

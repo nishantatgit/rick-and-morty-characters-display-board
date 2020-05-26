@@ -4,6 +4,8 @@ import Image from '../Image/Image';
 import withStyles from '../../utils/withStyles';
 import styles from './CharacterCard.style';
 
+import Alien from '../../../../public/svg/alien.svg';
+
 type props = {
   className: string;
   name: string;
@@ -32,6 +34,11 @@ const CharacterCard = (props: props) => {
     image,
     cssClass,
   } = props;
+
+  const svgProps = {
+    height: '50',
+    width: '50',
+  };
   return (
     <article className={`${className} ${cssClass}`}>
       <div className='image-container'>
@@ -43,6 +50,7 @@ const CharacterCard = (props: props) => {
         <span className='character-card__details__gender'>{gender}</span>
         <span className='character-card__details__origin'>{origin}</span>
         <span className='character-card__details__location'>{location}</span>
+        <Alien />
       </div>
     </article>
   );

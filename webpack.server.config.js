@@ -1,23 +1,37 @@
-const nodeExternals =  require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
 module.exports = {
   target: 'node',
   entry: {
-    server: "./src/server/server.tsx"
+    server: './src/server/server.tsx',
   },
   output: {
-    path: `${__dirname}`
+    path: `${__dirname}`,
   },
   module: {
-    rules : [
+    rules: [
       {
-        test : /\.tsx$|\.ts$|\.js$/,
-        use: [ 'ts-loader' ],
-        exclude: /node_modules/
-      }
-    ]
+        test: /\.tsx$|\.ts$|\.js$/,
+        use: ['ts-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'react-svg-loader',
+            options: {
+              jsx: true, // true outputs JSX tags
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: ['.ts', '.tsx', '.js'],
   },
-  externals : [nodeExternals()]
-}
+  externals: [nodeExternals()],
+};
