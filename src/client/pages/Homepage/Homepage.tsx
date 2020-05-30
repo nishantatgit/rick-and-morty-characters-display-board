@@ -51,8 +51,9 @@ const HomePage = (props: {
     });
   };
 
-  const onChipClose = (label: string) => {
-    const chipTexts = label && label.split(':').map((value) => value.trim());
+  const onChipClose = (e: any) => {
+    const label = e.target.parentElement.innerText;
+    const chipTexts = label && label.split(':').map((value: string) => value.trim());
     const currentFilters = { ...filters };
     delete currentFilters[chipTexts[0]];
     setFilters({ ...currentFilters });
@@ -65,7 +66,7 @@ const HomePage = (props: {
   const chips = filterKeys.map((filterKey) => {
     const chipProps: any = {
       label: `${filterKey}: ${filters[filterKey]}`,
-      onChipClose,
+      onClose: onChipClose,
     };
     return chipProps;
   });

@@ -5,14 +5,15 @@ import withStyles from '../../utils/withStyles';
 
 const chip = (props: {
   label: string;
-  onClose: any;
   className: string;
   cssClass: string;
+  onClose?: any;
 }) => {
   const { label, onClose, className, cssClass } = props;
   const handleOnCloseClick = (e: any) => {
     console.log('handling close clock');
-    onclose && onClose(e);
+    onClose && onClose(e);
+    console.log('onClose', onClose);
   };
   return (
     <div className={`${className} ${cssClass} chip`}>

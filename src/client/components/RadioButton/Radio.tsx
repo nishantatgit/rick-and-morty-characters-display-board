@@ -18,7 +18,7 @@ const Radio = (props: {
       {options &&
         options.map(
           (option: { label: string; value: string | number | string[] }) => (
-            <label>
+            <label className={value === option.value ? 'selected' : ''}>
               {option.label}
               <input
                 type='radio'

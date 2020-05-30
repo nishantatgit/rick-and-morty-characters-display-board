@@ -22,8 +22,37 @@ export default css`
 
     label {
       display: flex;
+      position: relative;
       justify-content: space-between;
       margin-bottom: 5px;
+      cursor: pointer;
+      &:after{
+        content: '';
+        display: inline-blocck;
+        width: 14px;
+        height: 14px;
+        border: 2px solid ${props => props.theme.COLORS.QUINARY};
+        border-radius: 50%;
+      }
+
+      &.selected{
+        &:before{
+          content: '';
+          display: inline-blocck;
+          width: 10px;
+          height: 10px;
+          background-color: ${props => props.theme.COLORS.QUINARY};
+          border-radius: 50%;
+          position: absolute;
+          top: 4px;
+          right: 4px;
+        }
+      }
+
+      input{
+        position: absolute;
+        left: -5000px;
+      }
     }
 
     margin-top: 20px;
