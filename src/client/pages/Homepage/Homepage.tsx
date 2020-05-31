@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Ripple } from 'react-awesome-spinners';
 import styles from './Homepage.style';
 
 import withStyles from '../../utils/withStyles';
@@ -8,6 +8,7 @@ import constants from '../../../constants';
 
 import ListRenderer from '../../components/ListRenderer/ListRenderer';
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
+import ScreenMask from '../../components/ScreenMask/ScreenMask';
 import FilterList from '../../components/FilterList/Filterlist';
 import Chip from '../../components/Chip/Chip';
 
@@ -18,6 +19,7 @@ const HomePage = (props: {
   const { initialState = [], className } = props;
 
   const [filters, setFilters] = useState({});
+  const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState(initialState);
 
   const updateFilter = (e: { target: any }) => {
@@ -42,18 +44,26 @@ const HomePage = (props: {
     if (filterKeys && filterKeys.length) {
       fetchOptions.params = filters;
     }
-    fetch(constants.URLS.characters, fetchOptions).then((data) => {
-      console.log('data', data);
-      const {
-        data: { results },
-      } = data;
-      setData(results);
-    });
+    setLoading(true);
+    fetch(constants.URLS.characters, fetchOptions).then(
+      (data) => {
+        console.log('data', data);
+        const {
+          data: { results },
+        } = data;
+        setData(results);
+        setLoading(false);
+      },
+      () => {
+        setLoading(false);
+      }
+    );
   };
 
   const onChipClose = (e: any) => {
     const label = e.target.parentElement.innerText;
-    const chipTexts = label && label.split(':').map((value: string) => value.trim());
+    const chipTexts =
+      label && label.split(':').map((value: string) => value.trim());
     const currentFilters = { ...filters };
     delete currentFilters[chipTexts[0]];
     setFilters({ ...currentFilters });
@@ -92,6 +102,12 @@ const HomePage = (props: {
         }
         onChange={updateFilter}
       ></FilterList>
+      {isLoading && (
+        <>
+          <ScreenMask />
+          <Ripple />
+        </>
+      )}{' '}
       <ListRenderer
         Component={CharacterCard}
         list={data}

@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 export default css`
+  position: relative;
   background-color: ${(props) => props.theme.COLORS.BACKGROUND.PRIMARY};
   color: ${(props) => props.theme.COLORS.TEXT.PRIMARY};
   .listbox-area {
@@ -31,8 +32,30 @@ export default css`
       background: none;
       border: none;
       cursor: pointer;
+      color: ${(props) => props.theme.COLORS.TERTIARY};
     }
   }
+
+  /* styling for loader */
+  .sc-fzpans {
+    position: fixed;
+    top: 50vh;
+    left: 60%;
+    transform: translate(-60%, -50%);
+    z-index: 100;
+
+    div {
+      border: 4px solid ${(props) => props.theme.COLORS.QUINARY};
+    }
+  }
+
+  .screen-mask {
+    background-color: ${(props) => props.theme.COLORS.BACKGROUND.PRIMARY};
+    opacity: 0.7;
+    z-index: 50;
+    margin-left: 20%;
+  }
+
   min-height: 99vh;
 
   @media ${(props) => props.theme.MEDIA_QUERIES.MEDIA_QUERIES.xSmall} {
@@ -48,7 +71,7 @@ export default css`
 
   @media ${(props) => props.theme.MEDIA_QUERIES.MEDIA_QUERIES.small} {
     .list-container {
-      width: 80%;
+      width: 78%;
       margin-left: 20%;
       .list-item {
         width: calc(30% - 3px);
