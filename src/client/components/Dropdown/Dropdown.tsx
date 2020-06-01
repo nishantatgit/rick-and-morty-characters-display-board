@@ -78,6 +78,12 @@ const Dropdown = (props: {
     props.onChange && props.onChange(e);
   };
 
+  const handleOnKeyUp = (e: { which: number; keyCode: number }) => {
+    const keyCode = e.which || e.keyCode;
+    console.log('keyCode', keyCode);
+    console.log('on key up handled ....', e);
+  };
+
   const { options } = props;
 
   return (
@@ -85,7 +91,7 @@ const Dropdown = (props: {
       <span className='listbox-label' id='listbox-label'>
         {props.listBoxLabel}
       </span>
-      <div className='listbox-dropdown-container'>
+      <div className='listbox-dropdown-container' onKeyUp={handleOnKeyUp}>
         <button
           onClick={handleButtonClick}
           className='dropdown-button'

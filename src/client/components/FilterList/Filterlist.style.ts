@@ -26,33 +26,37 @@ export default css`
       justify-content: space-between;
       margin-bottom: 5px;
       cursor: pointer;
-      &:after{
+      &:after {
         content: '';
         display: inline-blocck;
         width: 14px;
         height: 14px;
-        border: 2px solid ${props => props.theme.COLORS.QUINARY};
+        border: 2px solid ${(props) => props.theme.COLORS.QUINARY};
         border-radius: 50%;
       }
 
-      &.selected{
-        &:before{
+      &.selected {
+        &:before {
           content: '';
           display: inline-blocck;
           width: 10px;
           height: 10px;
-          background-color: ${props => props.theme.COLORS.QUINARY};
+          background-color: ${(props) => props.theme.COLORS.QUINARY};
           border-radius: 50%;
           position: absolute;
           top: 4px;
           right: 4px;
         }
       }
+    }
 
-      input{
-        position: absolute;
-        left: -5000px;
-      }
+    input {
+      position: absolute;
+      left: -5000px;
+    }
+
+    input:focus + label {
+      outline: 1px dotted grey;
     }
 
     margin-top: 20px;

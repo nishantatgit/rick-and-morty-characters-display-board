@@ -17,18 +17,27 @@ const Radio = (props: {
     <>
       {options &&
         options.map(
-          (option: { label: string; value: string | number | string[] }) => (
-            <label className={value === option.value ? 'selected' : ''}>
-              {option.label}
-              <input
-                type='radio'
-                name={name}
-                value={option.value}
-                onChange={onChangeHandler}
-                checked={value === option.value}
-              ></input>
-            </label>
-          )
+          (option: { label: string; value: string | number | string[] }) => {
+            const id = `${name}-${option.value}`;
+            return (
+              <>
+                <input
+                  type='radio'
+                  name={name}
+                  value={option.value}
+                  onChange={onChangeHandler}
+                  checked={value === option.value}
+                  id={id}
+                ></input>
+                <label
+                  className={value === option.value ? 'selected' : ''}
+                  htmlFor={id}
+                >
+                  {option.label}
+                </label>
+              </>
+            );
+          }
         )}
     </>
   );

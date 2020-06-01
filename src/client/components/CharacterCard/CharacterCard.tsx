@@ -10,6 +10,7 @@ import Humanoid from '../../../public/svg/humanoid.svg';
 import Robot from '../../../../public/svg/robot.svg';
 import Mytholog from '../../../../public/svg/mytholog.svg';
 import Unknown from '../../../../public/svg/unknown.svg';
+import Disease from '../../../../public/svg/disease.svg';
 
 type props = {
   className: string;
@@ -61,6 +62,8 @@ const CharacterCard = (props: props) => {
         return <Robot {...svgProps} />;
       case 'Robot':
         return <Robot {...svgProps} />;
+      case 'Disease':
+        return <Disease {...svgProps} />;
       default:
         return <Unknown {...svgProps} />;
     }

@@ -12,6 +12,7 @@ export default {
       values: [
         { label: 'Male', value: 'Male' },
         { label: 'Female', value: 'Female' },
+        { label: 'Genderless', value: 'Genderless' },
         { label: 'unknown', value: 'unknown' },
         { label: 'All', value: 'All' },
       ],
@@ -33,6 +34,8 @@ export default {
         { label: 'Human', value: 'Human' },
         { label: 'Mytholog', value: 'Mytholog' },
         { label: 'Alien', value: 'Alien' },
+        { label: 'Disease', value: 'Disease' },
+        { label: 'Robot', value: 'Robot' },
         { label: 'unknown', value: 'unknown' },
         { label: 'All', value: 'All' },
       ],
